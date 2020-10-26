@@ -4,9 +4,17 @@ import { SubmitButton } from 'components/SubmitButton';
 export const AddThought = () => {
   const apiURL = 'https://happy-thoughts-technigo.herokuapp.com/thoughts';
   const [newThought, setNewThought] = useState('');
+  const [thoughtLength, setThoughtLength] = useState('0');
 
   const handleNewThought = (event) => {
     setNewThought(event.target.value);
+    setThoughtLength(event.target.value.length);
+  };
+
+  const getClassNames = () => {
+    return thoughtLength === 140
+      ? 'add-thought__word-count red-text'
+      : 'add-thought__word-count';
   };
 
   // Submit-function with POST-method
@@ -36,7 +44,12 @@ export const AddThought = () => {
           className="add-thought__input-field"
           placeholder="Type your thoughts here..."
           onChange={handleNewThought}
+          maxlength="140"
         />
+
+        {/* Wordcount */}
+        {<p className={getClassNames()}>{thoughtLength} / 140</p>}
+
         <SubmitButton submitFunction={submitNewThought} />
       </form>
     </div>

@@ -1,13 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500;600&display=swap');
+
 body {
   margin: 0;
-  font-family: "Inconsolata", -apple-system, monospace, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: 'Inconsolata', -apple-system, monospace, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-  font-family: "Inconsolata", monospace;
+  font-family: 'Inconsolata', monospace;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -17,9 +20,22 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+// Colors & Other general settings
+$mainRed: #ffadad;
+$lightGray: #f2f0f0;
+$darkGray: #aaaaaa;
+$blk: #000;
+
+@mixin btn {
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+// Add thought-section
 .thought__wrapper {
-  border: 1px solid #000;
-  box-shadow: 7px 7px #000;
+  border: 1px solid $blk;
+  box-shadow: 7px 7px $blk;
   width: 50vw;
   margin: 30px auto;
   padding: 20px 25px 5px;
@@ -28,7 +44,7 @@ body {
 .add-thought__input-field {
   width: calc(50vw - 50px);
   height: 60px;
-  font-family: "Inconsolata", monospace;
+  font-family: 'Inconsolata', monospace;
   padding: 10px;
   margin: 10px auto 5px auto;
   resize: none;
@@ -46,14 +62,12 @@ body {
 .add-thought__input-field,
 .add-thought__button,
 .thought__heart-button {
-  outline-color: #ffadad;
+  outline-color: $mainRed;
 }
 
 .add-thought__button {
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  background: #ffadad;
+  @include btn;
+  background: $mainRed;
   padding: 10px 15px;
   margin: 0 0 15px 0;
 }
@@ -62,6 +76,7 @@ body {
   cursor: pointer;
 }
 
+// List of thoughts
 .thought__stats__wrapper {
   display: flex;
   align-items: center;
@@ -74,13 +89,11 @@ body {
 
 .thought__stats__heart-count,
 .thought__stats__timestamp {
-  color: #aaaaaa;
+  color: $darkGray;
 }
 
 .thought__heart-button {
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
+  @include btn;
   padding: 10px 5px;
 }
 
@@ -94,12 +107,11 @@ body {
   border-radius: 50%;
 }
 
+// Heart backgrounds
 .red-bg {
-  background: #ffadad;
+  background: $mainRed;
 }
 
 .gray-bg {
-  background: #f2f0f0;
+  background: $lightGray;
 }
-
-/*# sourceMappingURL=index.css.map */
