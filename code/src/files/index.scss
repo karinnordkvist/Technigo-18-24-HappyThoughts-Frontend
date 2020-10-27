@@ -76,11 +76,46 @@ $blk: #000;
   cursor: pointer;
 }
 
+.error__popup__wrapper {
+  background: $mainRed;
+  position: absolute;
+  left: calc(50% - 150px);
+  top: calc(50% - 75px);
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  box-shadow: 7px 7px $blk;
+}
+
+.error__popup {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.error__btn {
+  @include btn;
+  background: #fff;
+  padding: 5px 15px;
+  margin-top: 15px;
+}
+
+.error__btn:hover {
+  cursor: pointer;
+}
+
 // List of thoughts
 .thought__stats__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.thought__message {
+  word-wrap: break-word;
 }
 
 .thought__stats__heart-count {
