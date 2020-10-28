@@ -168,6 +168,18 @@ $blk: #000;
   border-radius: 50%;
 }
 
+// Footer
+footer {
+  text-align: center;
+  font-size: 12px;
+  margin: 50px auto 30px;
+}
+
+.footer__image {
+  width: 20px;
+  margin-bottom: 15px;
+}
+
 // Heart backgrounds
 .red-bg {
   background: $mainRed;

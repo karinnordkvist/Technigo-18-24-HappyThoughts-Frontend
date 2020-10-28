@@ -158,6 +158,17 @@ body {
   border-radius: 50%;
 }
 
+footer {
+  text-align: center;
+  font-size: 12px;
+  margin: 50px auto 30px;
+}
+
+.footer__image {
+  width: 20px;
+  margin-bottom: 15px;
+}
+
 .red-bg {
   background: #ffadad;
 }
