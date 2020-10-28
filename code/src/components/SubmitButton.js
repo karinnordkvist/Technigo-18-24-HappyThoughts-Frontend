@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SubmitButton = ({ submitFunction }) => {
+const SubmitButton = ({ submitFunction }) => {
   return (
     <button
       type="submit"
@@ -18,3 +18,5 @@ export const SubmitButton = ({ submitFunction }) => {
     </button>
   );
 };
+
+export default SubmitButton;

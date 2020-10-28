@@ -1,12 +1,13 @@
 import React from 'react';
-import { SubmitButton } from 'components/SubmitButton';
+import SubmitButton from 'components/SubmitButton';
 
-export const AddThought = ({
+const AddThought = ({
   newThought,
   handleNewThought,
   thoughtLength,
   submitNewThought,
 }) => {
+  // Add class of 'red-text' to counter if amount of letters exceeds 140
   const getWordcountClassNames = () => {
     return thoughtLength >= 140 ? 'red-text' : '';
   };
@@ -26,8 +27,8 @@ export const AddThought = ({
           maxLength="140"
         />
 
-        {/* Wordcount */}
         {
+          // Wordcounter
           <p className={`${getWordcountClassNames()} add-thought__word-count`}>
             {thoughtLength} / 140
           </p>
@@ -38,3 +39,5 @@ export const AddThought = ({
     </div>
   );
 };
+
+export default AddThought;

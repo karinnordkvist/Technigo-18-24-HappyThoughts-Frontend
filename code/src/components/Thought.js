@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
-export const Thought = ({ message, hearts, time, id, submitLikeUpdate }) => {
-  // Background of heart-buttons (class-state)
+const Thought = ({ message, hearts, time, id, submitLikeUpdateList }) => {
+  // State to control which css-class (background-color) to add to each heart-wrapper
   const [heartBackground, setHeartBackground] = useState('gray-bg');
-  const submitLike = () => {
+
+  // Send POST-request to add heart to thought + increasing amount of heart-clicks
+  const handleLike = () => {
     fetch(`https://happy-thoughts-technigo.herokuapp.com/thoughts/${id}/like`, {
       method: 'POST',
     }).then(() => {
-      // window.location.reload();
-      submitLikeUpdate(id);
+      let heartClicks = 0;
+      heartClicks += 1;
+      submitLikeUpdateList(id, heartClicks);
     });
   };
-  // Set background of heart-button to red if it has any likes
+
+  // Set background-color of heart-button depending on amount of likes
   useEffect(() => {
     hearts > 0 ? setHeartBackground('red-bg') : setHeartBackground('gray-bg');
-  });
+  }, [hearts]);
 
   return (
     <div className="thought__wrapper">
@@ -23,7 +27,7 @@ export const Thought = ({ message, hearts, time, id, submitLikeUpdate }) => {
         <p className="thought__stats__heart-count">
           <button
             className={`thought__heart-button ${heartBackground}`}
-            onClick={submitLike}
+            onClick={handleLike}
             value={id}
           >
             <span
@@ -41,3 +45,5 @@ export const Thought = ({ message, hearts, time, id, submitLikeUpdate }) => {
     </div>
   );
 };
+
+export default Thought;

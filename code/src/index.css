@@ -23,6 +23,7 @@ body {
   width: 50vw;
   margin: 30px auto;
   padding: 20px 25px 5px;
+  position: relative;
 }
 
 .add-thought__input-field {
@@ -71,6 +72,7 @@ body {
   height: 150px;
   text-align: center;
   box-shadow: 7px 7px #000;
+  z-index: 2;
 }
 
 .error__popup {
@@ -93,6 +95,31 @@ body {
 
 .error__btn:hover {
   cursor: pointer;
+}
+
+.heart-counter__popup__wrapper {
+  position: fixed;
+  right: 18vw;
+  top: 22vh;
+  z-index: 2;
+  background: url("/../img/heart-bg.png");
+  background-size: 100%;
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heart-counter__popup-text {
+  font-size: 12px;
+  margin-top: 24%;
+}
+
+.heart-counter__popup-counter {
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 .thought__stats__wrapper {
@@ -137,6 +164,46 @@ body {
 
 .gray-bg {
   background: #f2f0f0;
+}
+
+@media (min-width: 1024px) {
+  .heart-counter__popup__wrapper {
+    right: 18vw;
+  }
+}
+@media (max-width: 768px) {
+  .thought__wrapper {
+    width: 70vw;
+  }
+
+  .add-thought__input-field {
+    width: calc(70vw - 50px);
+  }
+
+  .heart-counter__popup__wrapper {
+    top: 24vh;
+    right: 18vw;
+  }
+}
+@media (max-width: 560px) {
+  .thought__wrapper {
+    width: 90vw;
+  }
+
+  .add-thought__input-field {
+    width: calc(90vw - 50px);
+  }
+
+  .heart-counter__popup__wrapper {
+    top: 24vh;
+    right: 11vw;
+  }
+}
+@media (max-width: 375px) {
+  .heart-counter__popup__wrapper {
+    top: 27vh;
+    right: -2vw;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

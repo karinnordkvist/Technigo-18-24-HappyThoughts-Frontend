@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListOfThoughts } from './components/ListOfThoughts';
+import ListOfThoughts from './components/ListOfThoughts';
 
 export const App = () => {
   return (

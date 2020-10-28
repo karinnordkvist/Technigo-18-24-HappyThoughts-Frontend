@@ -1,10 +1,11 @@
 import React from 'react';
 
-export const Popup = ({ setError }) => {
+const Popup = ({ setError }) => {
   return (
     <span className="error__popup__wrapper">
       <p className="error__popup">
         Oops, something went wrong. Please try again.
+        {/* Set error-state to 'hidden' when clicking on OK, to remove popup */}
         <button className="error__btn" onClick={() => setError('hidden')}>
           OK!
         </button>
@@ -12,3 +13,5 @@ export const Popup = ({ setError }) => {
     </span>
   );
 };
+
+export default Popup;
