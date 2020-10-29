@@ -56,6 +56,8 @@ const ListOfThoughts = () => {
         // If error => Handle error, set error-popup to showing
         if (newThought.message === 'Could not save thought') {
           setError('showing');
+        } else {
+          getData();
         }
       });
     // Reset input field
