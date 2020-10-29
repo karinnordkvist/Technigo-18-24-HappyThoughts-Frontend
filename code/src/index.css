@@ -179,7 +179,8 @@ footer {
 
 @media (min-width: 1024px) {
   .heart-counter__popup__wrapper {
-    right: 18vw;
+    right: 24vw;
+    top: 24vh;
   }
 }
 @media (max-width: 768px) {
