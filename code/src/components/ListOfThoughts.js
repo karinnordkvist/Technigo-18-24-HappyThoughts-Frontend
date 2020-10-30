@@ -44,24 +44,23 @@ const ListOfThoughts = () => {
   // Submit-function with POST-method + error-handling + reset input
   const submitNewThought = (event) => {
     event.preventDefault();
+    // Send the data
     fetch(ThoughtsUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ message: newThought }),
-    })
-      .then((results) => results.json())
-      .then((newThought) => {
-        // If error => Handle error, set error-popup to showing
-        if (newThought.message === 'Could not save thought') {
-          setError('showing');
-        } else {
-          getData();
-        }
-      });
-    // Reset input field
-    setNewThought('');
+    }).then((results) => {
+      // Error-handling:
+      if (results.ok === false) {
+        setError('showing');
+      } else {
+        getData();
+        // Reset input field
+        setNewThought('');
+      }
+    });
   };
 
   // Update the list of thoughts to display when liking a thought
