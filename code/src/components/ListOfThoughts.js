@@ -24,15 +24,13 @@ const ListOfThoughts = () => {
   const getData = () => {
     fetch(ThoughtsUrl)
       .then((results) => results.json())
-      .then((json) => {
-        setThoughts(json);
-      });
+      .then((json) => setThoughts(json));
   };
 
   // ON LOAD: Fetch thoughts for list and get new data every 5 seconds
   useEffect(() => {
     getData();
-    setInterval(getData, 5000);
+    setInterval(getData, 5000); // Fetch data every 5 seconds
   }, []);
 
   // Update the newThought-state + length-state before submit
@@ -44,7 +42,6 @@ const ListOfThoughts = () => {
   // Submit-function with POST-method + error-handling + reset input
   const submitNewThought = (event) => {
     event.preventDefault();
-    // Send the data
     fetch(ThoughtsUrl, {
       method: 'POST',
       headers: {
@@ -52,13 +49,11 @@ const ListOfThoughts = () => {
       },
       body: JSON.stringify({ message: newThought }),
     }).then((results) => {
-      // Error-handling:
       if (results.ok === false) {
-        setError('showing');
+        setError('showing'); // Display error popup
       } else {
-        getData();
-        // Reset input field
-        setNewThought('');
+        getData(); // Fetch data to refresh the list
+        setNewThought(''); // Reset input field
       }
     });
   };
