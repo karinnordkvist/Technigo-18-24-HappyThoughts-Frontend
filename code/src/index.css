@@ -61,6 +61,11 @@ body {
 
 .add-thought__button:hover {
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 173, 173, 0.6);
+}
+
+.add-thought__button:active {
+  background: rgba(255, 173, 173, 0.8);
 }
 
 .error__popup__wrapper {
@@ -95,6 +100,7 @@ body {
 
 .error__btn:hover {
   cursor: pointer;
+  box-shadow: 0 0 10px #fff;
 }
 
 .heart-counter__popup__wrapper {
@@ -122,14 +128,14 @@ body {
   margin-top: 5px;
 }
 
+.thought__message {
+  word-wrap: break-word;
+}
+
 .thought__stats__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.thought__message {
-  word-wrap: break-word;
 }
 
 .thought__stats__heart-count {
@@ -148,12 +154,20 @@ body {
   padding: 10px 5px;
 }
 
+.thought__heart-button:hover {
+  box-shadow: 0 0 10px rgba(255, 173, 173, 0.6);
+}
+
+.thought__heart-button:active {
+  background: rgba(255, 173, 173, 0.8);
+}
+
 .thought__heart-button {
   cursor: pointer;
 }
 
 .thought__stats__heart {
-  padding: 10px;
+  padding: 10px 6px 10px 10px;
   text-align: center;
   border-radius: 50%;
 }

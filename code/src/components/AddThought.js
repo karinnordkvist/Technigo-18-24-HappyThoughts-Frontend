@@ -7,9 +7,13 @@ const AddThought = ({
   thoughtLength,
   submitNewThought,
 }) => {
-  // Add class of 'red-text' to counter if amount of letters exceeds 140
+  // Add class of 'red-text' to counter if amount of letters is less than 5 or exceeds 140
   const getWordcountClassNames = () => {
-    return thoughtLength >= 140 ? 'red-text' : '';
+    return thoughtLength < 5
+      ? 'red-text'
+      : thoughtLength >= 140
+      ? 'red-text'
+      : '';
   };
 
   return (
