@@ -16,7 +16,6 @@ const AddThought = ({
       : thoughtLength >= 140
       ? setTextColor('red-text')
       : setTextColor('');
-    console.log('changing color check');
   });
 
   return (
