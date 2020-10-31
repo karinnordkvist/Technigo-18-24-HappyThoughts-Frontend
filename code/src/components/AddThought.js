@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SubmitButton from 'components/SubmitButton';
 
 const AddThought = ({
@@ -7,14 +7,17 @@ const AddThought = ({
   thoughtLength,
   submitNewThought,
 }) => {
+  const [textColor, setTextColor] = useState('');
+
   // Add class of 'red-text' to counter if amount of letters is less than 5 or exceeds 140
-  const getWordcountClassNames = () => {
-    return thoughtLength < 5
-      ? 'red-text'
+  useEffect(() => {
+    thoughtLength < 5
+      ? setTextColor('red-text')
       : thoughtLength >= 140
-      ? 'red-text'
-      : '';
-  };
+      ? setTextColor('red-text')
+      : setTextColor('');
+    console.log('changing color check');
+  });
 
   return (
     <div className="thought__wrapper gray-bg">
@@ -33,7 +36,7 @@ const AddThought = ({
 
         {
           // Wordcounter
-          <p className={`${getWordcountClassNames()} add-thought__word-count`}>
+          <p className={`add-thought__word-count ${textColor}`}>
             {thoughtLength} / 140
           </p>
         }

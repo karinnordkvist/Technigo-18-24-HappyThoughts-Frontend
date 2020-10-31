@@ -17,7 +17,7 @@ const Thought = ({ message, hearts, time, id, submitLikeUpdateList }) => {
 
   // Set background-color of heart-button depending on amount of likes
   useEffect(() => {
-    hearts > 0 ? setHeartBackground('red-bg') : setHeartBackground('gray-bg');
+    hearts > 0 && setHeartBackground('red-bg');
   }, [hearts]);
 
   return (
