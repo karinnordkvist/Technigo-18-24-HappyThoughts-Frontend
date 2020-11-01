@@ -19,6 +19,8 @@ const ListOfThoughts = () => {
   const [error, setError] = useState('hidden');
   // To be able to count how many likes you've given
   const [heartCount, setHeartCount] = useState(0);
+  // To set heart-counter popup to hidden or shown
+  const [heartCounter, setHeartCounter] = useState('hidden');
 
   // Function for initial data-fetch
   const getData = () => {
@@ -68,6 +70,7 @@ const ListOfThoughts = () => {
     });
     setHeartCount(heartCount + heartClicks);
     setThoughts(updatedThoughts);
+    setHeartCounter('visible');
   };
 
   return (
@@ -81,7 +84,12 @@ const ListOfThoughts = () => {
       />
 
       {/* If liking a thought, show heart-counter */}
-      {heartCount > 0 && <HeartCounter heartCount={heartCount} />}
+      {heartCounter === 'visible' && (
+        <HeartCounter
+          heartCount={heartCount}
+          setHeartCounter={setHeartCounter}
+        />
+      )}
 
       {/* Show error-popup if error in submit */}
       {error === 'showing' && (
