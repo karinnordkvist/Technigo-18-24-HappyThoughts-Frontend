@@ -1,2 +1,2 @@
 export const ThoughtsUrl =
-  'https://happy-thoughts-technigo.herokuapp.com/thoughts/';
+  'https://happy-thoughts-by-karin.herokuapp.com/thoughts';

@@ -6,7 +6,7 @@ const Thought = ({ message, hearts, time, id, submitLikeUpdateList }) => {
 
   // Send POST-request to add heart to thought + increasing amount of heart-clicks
   const handleLike = () => {
-    fetch(`https://happy-thoughts-technigo.herokuapp.com/thoughts/${id}/like`, {
+    fetch(`https://happy-thoughts-by-karin.herokuapp.com/thoughts/${id}/like`, {
       method: 'POST',
     }).then(() => {
       let heartClicks = 0;
