@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-const Thought = ({ message, hearts, time, id, submitLikeUpdateList }) => {
+const Thought = ({
+  message,
+  hearts,
+  time,
+  id,
+  submitLikeUpdateList,
+  author,
+}) => {
   // State to control which css-class (background-color) to add to each heart-wrapper
   const [heartBackground, setHeartBackground] = useState('gray-bg');
 
@@ -23,6 +30,7 @@ const Thought = ({ message, hearts, time, id, submitLikeUpdateList }) => {
   return (
     <div className="thought__wrapper">
       <p className="thought__message">{message}</p>
+      <p className="thought__author">by {author}</p>
       <div className="thought__stats__wrapper">
         <p className="thought__stats__heart-count">
           <button

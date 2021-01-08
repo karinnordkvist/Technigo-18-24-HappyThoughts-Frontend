@@ -13,6 +13,8 @@ const ListOfThoughts = () => {
   const [thoughts, setThoughts] = useState([]);
   // New thought to add to existing array of thoughts
   const [newThought, setNewThought] = useState('');
+  // Add author to new thoughts
+  const [author, setAuthor] = useState();
   // To count amount of letters in a new thought
   const [thoughtLength, setThoughtLength] = useState('0');
   // To set error-popup to hidden or shown
@@ -41,6 +43,11 @@ const ListOfThoughts = () => {
     setThoughtLength(event.target.value.length);
   };
 
+  const handleAuthor = (event) => {
+    setAuthor(event.target.value);
+    console.log(author);
+  };
+
   // Submit-function with POST-method + error-handling + reset input
   const submitNewThought = (event) => {
     event.preventDefault();
@@ -49,15 +56,20 @@ const ListOfThoughts = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ message: newThought }),
-    }).then((results) => {
-      if (results.ok === false) {
-        setError('showing'); // Display error popup
-      } else {
-        getData(); // Fetch data to refresh the list
-        setNewThought(''); // Reset input field
-      }
-    });
+      body: JSON.stringify({ message: newThought, author: author }),
+    })
+      .then((results) => {
+        if (results.ok === false) {
+          setError('showing'); // Display error popup
+          throw new Error('Could not post thought.');
+        } else {
+          getData(); // Fetch data to refresh the list
+          setNewThought(''); // Reset input field
+          setAuthor('');
+          console.log(results);
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   // Update the list of thoughts to display when liking a thought
@@ -81,6 +93,8 @@ const ListOfThoughts = () => {
         handleNewThought={handleNewThought}
         thoughtLength={thoughtLength}
         submitNewThought={submitNewThought}
+        author={author}
+        handleAuthor={handleAuthor}
       />
 
       {/* If liking a thought, show heart-counter */}
@@ -93,7 +107,11 @@ const ListOfThoughts = () => {
 
       {/* Show error-popup if error in submit */}
       {error === 'showing' && (
-        <Popup message="Oops, something went wrong!" setError={setError} />
+        <Popup
+          message="Oops, something went wrong!"
+          setError={setError}
+          setNewThought={setNewThought}
+        />
       )}
 
       {/* Loop over API with thoughts to reveal each one */}
@@ -108,6 +126,7 @@ const ListOfThoughts = () => {
             setThoughts={setThoughts}
             thoughts={thoughts}
             submitLikeUpdateList={submitLikeUpdateList}
+            author={thought.author}
           />
         );
       })}

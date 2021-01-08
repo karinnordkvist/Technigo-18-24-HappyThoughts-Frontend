@@ -56,6 +56,18 @@ $blk: #000;
   text-align: right;
 }
 
+.add-thought__author-input {
+  display: block;
+  width: calc(50vw - 50px);
+  height: 26px;
+  padding: 10px;
+  margin: 10px auto 20px 0;
+}
+
+.add-thought__author-label {
+  margin-top: 40px;
+}
+
 .red-text {
   color: red;
 }
@@ -142,6 +154,13 @@ $blk: #000;
 // List of thoughts
 .thought__message {
   word-wrap: break-word;
+}
+
+.thought__author {
+  word-wrap: break-word;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 // Heart + counter + time

@@ -6,6 +6,8 @@ const AddThought = ({
   handleNewThought,
   thoughtLength,
   submitNewThought,
+  author,
+  handleAuthor,
 }) => {
   const [textColor, setTextColor] = useState('');
 
@@ -21,6 +23,17 @@ const AddThought = ({
   return (
     <div className="thought__wrapper gray-bg">
       <form>
+        <label className="add-thought__author-label" htmlFor="thought-author">
+          Name
+        </label>
+        <input
+          className="add-thought__author-input"
+          type="text"
+          id="thought-author"
+          value={author}
+          onChange={handleAuthor}
+          placeholder="Enter your name.. (if you want to)"
+        />
         <label htmlFor="thought-input" className="thought__question">
           What's making you happy right now?
         </label>
