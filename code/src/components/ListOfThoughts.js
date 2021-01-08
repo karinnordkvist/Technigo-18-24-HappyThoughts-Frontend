@@ -14,7 +14,7 @@ const ListOfThoughts = () => {
   // New thought to add to existing array of thoughts
   const [newThought, setNewThought] = useState('');
   // Add author to new thoughts
-  const [author, setAuthor] = useState('Anonymous');
+  const [author, setAuthor] = useState('');
   // To count amount of letters in a new thought
   const [thoughtLength, setThoughtLength] = useState('0');
   // To set error-popup to hidden or shown
@@ -56,7 +56,10 @@ const ListOfThoughts = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ message: newThought, author: author }),
+      body: JSON.stringify({
+        message: newThought,
+        author: author === '' ? 'Anonymous' : author,
+      }),
     })
       .then((results) => {
         if (results.ok === false) {
