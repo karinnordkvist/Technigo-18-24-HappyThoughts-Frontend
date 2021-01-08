@@ -14,7 +14,7 @@ const ListOfThoughts = () => {
   // New thought to add to existing array of thoughts
   const [newThought, setNewThought] = useState('');
   // Add author to new thoughts
-  const [author, setAuthor] = useState();
+  const [author, setAuthor] = useState('Anonymous');
   // To count amount of letters in a new thought
   const [thoughtLength, setThoughtLength] = useState('0');
   // To set error-popup to hidden or shown
